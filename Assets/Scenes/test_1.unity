@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0eab8b86d85ea084d8ae7bd89e8d3704, type: 2}
 --- !u!1 &173732345
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,8 +446,8 @@ GameObject:
   m_Name: wall (3)
   m_TagString: wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &425478115
 Transform:
@@ -695,8 +695,8 @@ GameObject:
   m_Name: wall
   m_TagString: wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &810992204
 Transform:
@@ -907,8 +907,8 @@ GameObject:
   m_Name: wall (2)
   m_TagString: wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1111746776
 Transform:
@@ -1090,7 +1090,7 @@ GameObject:
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1271849205
 Transform:
@@ -1186,8 +1186,8 @@ GameObject:
   m_Name: wall (1)
   m_TagString: wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1275087333
 Transform:
@@ -1669,6 +1669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RescueObject: {fileID: 4337471833308775989, guid: 72987d5c6d85f0c48bec69082c72b7fd, type: 3}
+  person: []
 --- !u!4 &1641236310
 Transform:
   m_ObjectHideFlags: 0
