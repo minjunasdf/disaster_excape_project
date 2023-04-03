@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public GameObject prefab;
-using System;
+
+using Random = UnityEngine.Random;
 
 public class CreateRescueNeeded : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject RescueObject;
+
     void Start()
     {
-        Random rand = new Random();
-        int random_number=rand.Next(8);
+        int random_number;
+        Vector3[] coord = new[] { new Vector3(7, 1, 7), new Vector3(7, 1, -7), new Vector3(0, 1, 0), new Vector3(0, 1, 7), new Vector3(0, 1, -7), new Vector3(-7, 1, 0), new Vector3(-7, 1, 7), new Vector3(-7, 1, -7) };
+
         for (int i=0;i<5;i++)
         {
-            switch random_number
-            Instantiate(prefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            random_number = Random.Range(0,8);
+            Vector3 random_coord = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
+            Instantiate(RescueObject, coord[random_number]+random_coord, Quaternion.identity);
         }
+
     }
 
     // Update is called once per frame
