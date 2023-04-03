@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class CreateRescueNeeded : MonoBehaviour
 {
     public GameObject RescueObject;
+    public GameObject[] person;
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class CreateRescueNeeded : MonoBehaviour
         {
             random_number = Random.Range(0,8);
             Vector3 random_coord = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
-            Instantiate(RescueObject, coord[random_number]+random_coord, Quaternion.identity);
+            person[i]=Instantiate(RescueObject, coord[random_number]+random_coord, Quaternion.identity);
         }
 
     }
