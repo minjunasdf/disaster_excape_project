@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class MoveToSomewhere : MonoBehaviour
 {
+    UnityEngine.AI.NavMeshAgent agent;
     Vector3[] coord = new[] { new Vector3(7, 1, 0), new Vector3(7, 1, 7), new Vector3(7, 1, -7), new Vector3(0, 1, 0), new Vector3(0, 1, 7), new Vector3(0, 1, -7), new Vector3(-7, 1, 0), new Vector3(-7, 1, 7) };
-    // Start is called before the first frame update
+
+    public GameObject target;   // change this to edit destination
     void Start()
     {
-        
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.SetDestination(target.transform.position);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
     }
-    public void GetMoveCommand(int n)// 방 번호를 입력받아 그 위치로 이동
+    public void GetMoveCommand(int n)
     {
 
     }

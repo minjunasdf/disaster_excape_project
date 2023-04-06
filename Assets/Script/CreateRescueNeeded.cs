@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class CreateRescueNeeded : MonoBehaviour
 {
     public GameObject RescueObject;
+    public GameObject Exit;
     public GameObject[] Rooms = new GameObject[9]; //방 받아오는 변수
     public GameObject[] person = new GameObject[5];
 
@@ -18,6 +19,7 @@ public class CreateRescueNeeded : MonoBehaviour
             random_number = Random.Range(0,9);
             Vector3 random_coord = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
             person[i] = Instantiate(RescueObject, Rooms[random_number].transform.position + random_coord, Quaternion.identity);
+            person[i].GetComponent<MoveToSomewhere>().target = Exit;
         }
 
     }
