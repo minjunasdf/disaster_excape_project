@@ -1,20 +1,23 @@
 using UnityEngine;
 using Unity.MLAgents;
 
-public class MummyAgent : Agent
+public class ExcapeAgent : Agent
 {
+    public GameObject Area;
+    /*
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
     {
-
+        
     }
-
+    */
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
-
+        Area = GameObject.Find("Area");
+        Area.GetComponent<CreateRescueNeeded>().Init();
     }
-
+    /*
     //환경 정보를 관측 및 수집해 정책 결정을 위해 브레인에 전달하는 메소드
     public override void CollectObservations()
     {
@@ -32,4 +35,6 @@ public class MummyAgent : Agent
     {
 
     }
+    */
 }
+
