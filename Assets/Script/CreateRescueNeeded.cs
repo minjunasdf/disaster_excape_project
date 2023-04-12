@@ -8,8 +8,9 @@ public class CreateRescueNeeded : MonoBehaviour
 {
     public GameObject RescueObject;
     //public GameObject[] Exit = new GameObject[4];   // Get Exit object
+    public int peoplenum;
     public GameObject[] Rooms = new GameObject[9]; // Get check objects
-    public GameObject[] person = new GameObject[5];
+    public GameObject[] person = new GameObject[1000];
 
     void Start()
     {
@@ -26,7 +27,7 @@ public class CreateRescueNeeded : MonoBehaviour
     {
         int random_number;
         int i;
-        for (i = 0; i < 5; i++)
+        for (i = 0; i < peoplenum; i++)
         {
             random_number = Random.Range(0, 9);
             Vector3 random_coord = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));

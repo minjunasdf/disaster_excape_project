@@ -58,9 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Script\chkExit.cs" />
     <Compile Include="Assets\Script\chkpeople.cs" />
+    <Compile Include="Assets\Script\ExcapeAgent.cs" />
     <Compile Include="Assets\Script\MoveToSomewhere.cs" />
     <Compile Include="Assets\Script\CreateRescueNeeded.cs" />
-    <Compile Include="Assets\Script\ExcapeAgent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
