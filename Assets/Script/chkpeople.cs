@@ -22,9 +22,9 @@ public class chkpeople : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void PeopleHasExited()
     {
-        
+        peoplenum--;
     }
     private void OnTriggerEnter(Collider other)
     {

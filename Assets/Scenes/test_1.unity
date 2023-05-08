@@ -2262,7 +2262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RescueObject: {fileID: 4337471833308775989, guid: 72987d5c6d85f0c48bec69082c72b7fd, type: 3}
-  peoplenum: 5
+  peoplenum: 60
   Rooms:
   - {fileID: 1653181872}
   - {fileID: 761624794}
@@ -3382,7 +3382,7 @@ GameObject:
   - component: {fileID: 1653181874}
   - component: {fileID: 1653181875}
   m_Layer: 0
-  m_Name: check
+  m_Name: ExitArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
