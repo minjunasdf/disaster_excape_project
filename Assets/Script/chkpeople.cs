@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class chkpeople : MonoBehaviour
+public class Chkpeople : MonoBehaviour
 {
     public int peoplenum;
     Vector3[] roompos = new Vector3[9];
     float[] pos = new float[3];
-    float roomsize = 3.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +28,7 @@ public class chkpeople : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "RescueNeeded")
+        if (other.CompareTag("RescueNeeded"))
         {
             peoplenum++;
             //Debug.Log("123"+peoplenum);
@@ -37,6 +36,6 @@ public class chkpeople : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "RescueNeeded") peoplenum--;
+        if (other.CompareTag("RescueNeeded")) peoplenum--;
     }
 }

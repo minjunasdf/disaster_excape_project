@@ -29,7 +29,7 @@ public class CreateRescueNeeded : MonoBehaviour
         int i;
         for (i = 0; i < peoplenum; i++)
         {
-            random_number = Random.Range(0, 9);
+            random_number = Random.Range(1, 9);
             Vector3 random_coord = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
             person[i] = Instantiate(RescueObject, Rooms[random_number].transform.position + random_coord, Quaternion.identity);
         }

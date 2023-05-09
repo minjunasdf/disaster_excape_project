@@ -56,8 +56,9 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\chkExit.cs" />
-    <Compile Include="Assets\Script\chkpeople.cs" />
+    <Compile Include="Assets\Script\WhereAmI.cs" />
+    <Compile Include="Assets\Script\ChkExit.cs" />
+    <Compile Include="Assets\Script\Chkpeople.cs" />
     <Compile Include="Assets\Script\ExcapeAgent.cs" />
     <Compile Include="Assets\Script\MoveToSomewhere.cs" />
     <Compile Include="Assets\Script\CreateRescueNeeded.cs" />

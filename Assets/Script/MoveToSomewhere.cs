@@ -14,7 +14,6 @@ public class MoveToSomewhere : MonoBehaviour
     {
         Area = GameObject.Find("Area");
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Destination = 0;
     }
 
 
