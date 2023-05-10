@@ -25,12 +25,10 @@ public class ExcapeAgent : Agent
             if (peopleArray[k] != null)
             {
                 peopleArray[k].GetComponent<ChkExit>().IWantToDie();
-                Debug.Log("gllg1");
             }
             else
             {
                 peopleArray[k] = null;
-                Debug.Log("gllg2");
             }
         }
         Area.GetComponent<CreateRescueNeeded>().Init();
@@ -42,12 +40,12 @@ public class ExcapeAgent : Agent
     //환경 정보를 관측 및 수집해 정책 결정을 위해 브레인에 전달하는 메소드
     public override void CollectObservations(VectorSensor sensor)
     {
-        for(int igd = 0; igd<peopleNum; igd++)
+        for(int i = 0; i<peopleNum; i++)
         {
-            if (peopleArray[igd] != null)
+            if (peopleArray[i] != null)
             {
-                sensor.AddObservation(peopleArray[igd].GetComponent<WhereAmI>().position);
-                Debug.Log(peopleArray[igd].GetComponent<WhereAmI>().position);
+                sensor.AddObservation(peopleArray[i].GetComponent<WhereAmI>().position);
+                Debug.Log(peopleArray[i].GetComponent<WhereAmI>().position);
             }
             else
             {
@@ -61,6 +59,7 @@ public class ExcapeAgent : Agent
             sensor.AddObservation(Area.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().peoplenum);
             Debug.Log(Area.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().peoplenum);
         }
+
     }
 
     
@@ -75,7 +74,14 @@ public class ExcapeAgent : Agent
     {
         for(int j = 0; j<peopleNum; j++)
         {
-            peopleArray[j].GetComponent<MoveToSomewhere>().Destination = act[j];
+            if (peopleArray[j] != null)
+            {
+                peopleArray[j].GetComponent<MoveToSomewhere>().Destination = act[j];
+            }
+            else
+            {
+                peopleArray[j] = null;
+            }
         }
     }
 
@@ -90,6 +96,6 @@ public class ExcapeAgent : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-
+        
     }
 }
