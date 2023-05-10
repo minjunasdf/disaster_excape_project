@@ -18,10 +18,14 @@ public class ChkExit : MonoBehaviour
 
         if (collision.GetComponent<Collider>().gameObject.CompareTag("Exit"))
         {
-            Debug.Log("Exited");
             exitArea.GetComponent<Chkpeople>().PeopleHasExited();
             Area.GetComponent<ExcapeAgent>().SomeoneHasExited();
-            Destroy(this.gameObject);
-         }
+            IWantToDie();
+        }
+    }
+
+    public void IWantToDie()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -8,21 +8,33 @@ public class ExcapeAgent : Agent
     public GameObject Area;
     public GameObject[] peopleArray;
     public int peopleNum, remainPeople;
-    UnityEngine.AI.NavMeshAgent agent;
 
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
     {
         Area = GameObject.Find("Area");
         peopleArray = this.GetComponent<CreateRescueNeeded>().person;
-        remainPeople = this.GetComponent<CreateRescueNeeded>().peoplenum;
         peopleNum = this.GetComponent<CreateRescueNeeded>().peoplenum;
     }
 
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin() //끝
     {
+        for(int k= 0; k < peopleNum;k++)
+        {
+            if (peopleArray[k] != null)
+            {
+                peopleArray[k].GetComponent<ChkExit>().IWantToDie();
+                Debug.Log("gllg1");
+            }
+            else
+            {
+                peopleArray[k] = null;
+                Debug.Log("gllg2");
+            }
+        }
         Area.GetComponent<CreateRescueNeeded>().Init();
+        remainPeople = peopleNum;
         SetReward(2f);
     }
     
@@ -30,15 +42,24 @@ public class ExcapeAgent : Agent
     //환경 정보를 관측 및 수집해 정책 결정을 위해 브레인에 전달하는 메소드
     public override void CollectObservations(VectorSensor sensor)
     {
-        for(int i = 0; i<peopleNum; i++)
+        for(int igd = 0; igd<peopleNum; igd++)
         {
-            if (peopleArray[i] != null) sensor.AddObservation(peopleArray[i].GetComponent<WhereAmI>().position);
-            else sensor.AddObservation(0); Debug.Log("");
+            if (peopleArray[igd] != null)
+            {
+                sensor.AddObservation(peopleArray[igd].GetComponent<WhereAmI>().position);
+                Debug.Log(peopleArray[igd].GetComponent<WhereAmI>().position);
+            }
+            else
+            {
+                sensor.AddObservation(0);
+                Debug.Log("0");
+            }
         }
 
         for(int i=0;i<9;i++)
         {
             sensor.AddObservation(Area.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().peoplenum);
+            Debug.Log(Area.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().peoplenum);
         }
     }
 
@@ -52,10 +73,10 @@ public class ExcapeAgent : Agent
     
     void MoveObject(ActionSegment<int> act)
     {
-        int objectNum = 0;
-        int roomNum = 0;
-        agent = peopleArray[objectNum].GetComponent<UnityEngine.AI.NavMeshAgent>();
-        agent.SetDestination(Area.GetComponent<CreateRescueNeeded>().Rooms[roomNum].transform.position);
+        for(int j = 0; j<peopleNum; j++)
+        {
+            peopleArray[j].GetComponent<MoveToSomewhere>().Destination = act[j];
+        }
     }
 
     public void SomeoneHasExited()
