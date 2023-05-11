@@ -3,11 +3,12 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 
+
 public class ExcapeAgent : Agent
 {
     public GameObject Area;
     public GameObject[] peopleArray;
-    public int peopleNum, remainPeople;
+    public int peopleNum, remainPeople, exit;
 
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
@@ -17,8 +18,9 @@ public class ExcapeAgent : Agent
         peopleNum = this.GetComponent<CreateRescueNeeded>().peoplenum;
     }
 
+
     //에피소드(학습단위)가 시작할때마다 호출
-    public override void OnEpisodeBegin() //끝
+    public override void OnEpisodeBegin()
     {
         for(int k= 0; k < peopleNum;k++)
         {
@@ -33,6 +35,8 @@ public class ExcapeAgent : Agent
         }
         Area.GetComponent<CreateRescueNeeded>().Init();
         remainPeople = peopleNum;
+        //exit = Random.Range(0, 8);
+        exit = 0;
         SetReward(2f);
     }
     
@@ -56,8 +60,8 @@ public class ExcapeAgent : Agent
 
         for(int i=0;i<9;i++)
         {
-            sensor.AddObservation(Area.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().peoplenum);
-            Debug.Log(Area.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().peoplenum);
+            sensor.AddObservation(Area.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
+            Debug.Log(Area.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
         }
 
     }
@@ -85,6 +89,7 @@ public class ExcapeAgent : Agent
         }
     }
 
+
     public void SomeoneHasExited()
     {
         remainPeople--;
@@ -93,6 +98,7 @@ public class ExcapeAgent : Agent
             EndEpisode();
         }
     }
+
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {

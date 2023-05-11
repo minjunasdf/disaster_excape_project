@@ -15,5 +15,11 @@ public class WhereAmI : MonoBehaviour
         else if (other.CompareTag("room6")) position = 6;
         else if (other.CompareTag("room7")) position = 7;
         else if (other.CompareTag("room8")) position = 8;
+        else if (other.CompareTag("room0")) position = 0;
+
+        if(position == GameObject.Find("Area").GetComponent<ExcapeAgent>().exit)
+        {
+            this.GetComponent<ChkExit>().ItExcaped();
+        }
     }
 }

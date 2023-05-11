@@ -9,28 +9,35 @@ public class CreateRescueNeeded : MonoBehaviour
     public GameObject RescueObject;
     //public GameObject[] Exit = new GameObject[4];   // Get Exit object
     public int peoplenum;
+    int[] random_number;
+    public GameObject[] SpawnPoint = new GameObject[90]; // Get check objects
     public GameObject[] Rooms = new GameObject[9]; // Get check objects
     public GameObject[] person = new GameObject[1000];
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
-    }
 
     public void Init()
     {
-        int random_number;
-        int i;
-        for (i = 0; i < peoplenum; i++)
+        int i = 0;
+        while (i < peoplenum)
         {
-            random_number = Random.Range(1, 9);
-            Vector3 random_coord = new Vector3(Random.Range(-2f, 2f), 0f, Random.Range(-2f, 2f));
-            person[i] = Instantiate(RescueObject, Rooms[random_number].transform.position + random_coord, Quaternion.identity);
+            bool dab = true;
+            while (dab)
+            {
+                int g = Random.Range(0, 90);
+                for (int ag = 0; ag < i; ag++)
+                {
+                    if (g == random_number[ag])
+                    {
+                        dab = true;
+                    }
+                }
+            }
+            random_number[i] = Random.Range(0, 90);
+            i++;
+        }
+        for (int j = 0; j < peoplenum; j++)
+        {
+            person[j] = Instantiate(RescueObject, SpawnPoint[random_number[j]].transform.position, Quaternion.identity);
         }
     }
 }
