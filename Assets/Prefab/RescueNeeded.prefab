@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Area: {fileID: 0}
-  Destination: -1
+  Destination: 0
 --- !u!114 &5867106962951349670
 MonoBehaviour:
   m_ObjectHideFlags: 0

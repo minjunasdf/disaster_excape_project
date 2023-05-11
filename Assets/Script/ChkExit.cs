@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChkExit : MonoBehaviour
 {
-    public GameObject exitArea;
     public GameObject Area;
 
 

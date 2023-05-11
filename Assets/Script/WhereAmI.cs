@@ -5,6 +5,8 @@ using UnityEngine;
 public class WhereAmI : MonoBehaviour
 {
     public int position;
+
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("room1")) position = 1;

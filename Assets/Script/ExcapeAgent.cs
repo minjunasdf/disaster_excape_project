@@ -6,14 +6,12 @@ using Unity.MLAgents.Sensors;
 
 public class ExcapeAgent : Agent
 {
-    public GameObject Area;
     public GameObject[] peopleArray;
     public int peopleNum, remainPeople, exit;
 
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
     {
-        Area = GameObject.Find("Area");
         peopleArray = this.GetComponent<CreateRescueNeeded>().person;
         peopleNum = this.GetComponent<CreateRescueNeeded>().peoplenum;
     }
@@ -33,7 +31,7 @@ public class ExcapeAgent : Agent
                 peopleArray[k] = null;
             }
         }
-        Area.GetComponent<CreateRescueNeeded>().Init();
+        this.GetComponent<CreateRescueNeeded>().Init();
         remainPeople = peopleNum;
         //exit = Random.Range(0, 8);
         exit = 0;
@@ -60,8 +58,8 @@ public class ExcapeAgent : Agent
 
         for(int i=0;i<9;i++)
         {
-            sensor.AddObservation(Area.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
-            Debug.Log(Area.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
+            sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
+            Debug.Log(this.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
         }
 
     }
