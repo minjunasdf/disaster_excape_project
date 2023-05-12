@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChkExit : MonoBehaviour
 {
     public GameObject Area;
-
+    public int personIndex; // person의 인덱스이면서 일련번호
 
     void Start()
     {
@@ -21,5 +21,6 @@ public class ChkExit : MonoBehaviour
     public void IWantToDie()
     {
         Destroy(this.gameObject);
+        Area.GetComponent<CreateRescueNeeded>().person[personIndex]=null;
     }
 }

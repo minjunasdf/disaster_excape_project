@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chkpeople : MonoBehaviour
 {
-    public int peoplenum;
+    public int roomPeopleNum;
 
 
     private void OnTriggerEnter(Collider other)
@@ -12,12 +12,12 @@ public class Chkpeople : MonoBehaviour
 
         if (other.CompareTag("RescueNeeded"))
         {
-            peoplenum++;
+            roomPeopleNum++;
             //Debug.Log("123"+peoplenum);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("RescueNeeded")) peoplenum--;
+        if (other.CompareTag("RescueNeeded")) roomPeopleNum--;
     }
 }

@@ -6,33 +6,31 @@ using Unity.MLAgents.Sensors;
 
 public class ExcapeAgent : Agent
 {
-    public GameObject[] peopleArray;
-    public int peopleNum, remainPeople, exit;
+    public int remainPeople, exit;
 
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
     {
-        peopleArray = this.GetComponent<CreateRescueNeeded>().person;
-        peopleNum = this.GetComponent<CreateRescueNeeded>().peoplenum;
+
     }
 
 
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
-        for(int k= 0; k < peopleNum;k++)
+        for(int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
         {
-            if (peopleArray[k] != null)
+            if (this.GetComponent<CreateRescueNeeded>().person[k] != null)
             {
-                peopleArray[k].GetComponent<ChkExit>().IWantToDie();
+                this.GetComponent<CreateRescueNeeded>().person[k].GetComponent<ChkExit>().IWantToDie();
             }
             else
             {
-                peopleArray[k] = null;
+                this.GetComponent<CreateRescueNeeded>().person[k] = null;
             }
         }
         this.GetComponent<CreateRescueNeeded>().Init();
-        remainPeople = peopleNum;
+        remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
         //exit = Random.Range(0, 8);
         exit = 0;
         SetReward(2f);
@@ -42,12 +40,12 @@ public class ExcapeAgent : Agent
     //환경 정보를 관측 및 수집해 정책 결정을 위해 브레인에 전달하는 메소드
     public override void CollectObservations(VectorSensor sensor)
     {
-        for(int i = 0; i<peopleNum; i++)
+        for(int i = 0; i<this.GetComponent<CreateRescueNeeded>().totalPeopleNum; i++) // 전체 사람 수만큼 반복
         {
-            if (peopleArray[i] != null)
+            if (this.GetComponent<CreateRescueNeeded>().person[i] != null)
             {
-                sensor.AddObservation(peopleArray[i].GetComponent<WhereAmI>().position);
-                Debug.Log(peopleArray[i].GetComponent<WhereAmI>().position);
+                sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().person[i].GetComponent<WhereAmI>().position); // 사람이 있는 방 번호
+                Debug.Log(this.GetComponent<CreateRescueNeeded>().person[i].GetComponent<WhereAmI>().position);
             }
             else
             {
@@ -58,8 +56,8 @@ public class ExcapeAgent : Agent
 
         for(int i=0;i<9;i++)
         {
-            sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
-            Debug.Log(this.GetComponent<CreateRescueNeeded>().SpawnPoint[i].GetComponent<Chkpeople>().peoplenum);
+            //Debug.Log(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>());
+            sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().roomPeopleNum); 
         }
 
     }
@@ -74,15 +72,15 @@ public class ExcapeAgent : Agent
     
     void MoveObject(ActionSegment<int> act)
     {
-        for(int j = 0; j<peopleNum; j++)
+        for(int j = 0; j<this.GetComponent<CreateRescueNeeded>().totalPeopleNum; j++)
         {
-            if (peopleArray[j] != null)
+            if (this.GetComponent<CreateRescueNeeded>().person[j] != null)
             {
-                peopleArray[j].GetComponent<MoveToSomewhere>().Destination = act[j];
+                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = act[j];
             }
             else
             {
-                peopleArray[j] = null;
+                this.GetComponent<CreateRescueNeeded>().person[j] = null;
             }
         }
     }

@@ -8,17 +8,17 @@ public class CreateRescueNeeded : MonoBehaviour
 {
     public GameObject RescueObject;
     //public GameObject[] Exit = new GameObject[4];   // Get Exit object
-    public int peoplenum;
+    public int totalPeopleNum;
     int[] random_number = new int[10];
     int i, g = 0;
-    public GameObject[] SpawnPoint = new GameObject[90]; // Get check objects
-    public GameObject[] Rooms = new GameObject[9]; // Get check objects
+    public GameObject[] SpawnPoint = new GameObject[90]; // Make Spawnpoint objects
+    public GameObject[] Rooms = new GameObject[9]; // Get Room objects
     public GameObject[] person = new GameObject[1000];
 
 
     public void Init()
     {
-        while (i < peoplenum)
+        while (i < totalPeopleNum)
         {
             bool dab = true;
             while (dab)
@@ -34,13 +34,13 @@ public class CreateRescueNeeded : MonoBehaviour
                 }
             }
             random_number[i] = g;
-            Debug.Log(g);
             i++;
         }
 
-        for (int j = 0; j < peoplenum; j++)
+        for (int j = 0; j < totalPeopleNum; j++)
         {
             person[j] = Instantiate(RescueObject, SpawnPoint[random_number[j]].transform.position, Quaternion.identity);
+            person[j].GetComponent<ChkExit>().personIndex = j;
         }
     }
 }
