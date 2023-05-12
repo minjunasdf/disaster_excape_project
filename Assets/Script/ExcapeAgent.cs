@@ -18,7 +18,8 @@ public class ExcapeAgent : Agent
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
-        for(int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
+        exit = Random.Range(0, 8);
+        for (int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
         {
             if (this.GetComponent<CreateRescueNeeded>().person[k] != null)
             {
@@ -31,8 +32,6 @@ public class ExcapeAgent : Agent
         }
         this.GetComponent<CreateRescueNeeded>().Init();
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
-        //exit = Random.Range(0, 8);
-        exit = 0;
         SetReward(2f);
     }
     
@@ -45,18 +44,15 @@ public class ExcapeAgent : Agent
             if (this.GetComponent<CreateRescueNeeded>().person[i] != null)
             {
                 sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().person[i].GetComponent<WhereAmI>().position); // 사람이 있는 방 번호
-                Debug.Log(this.GetComponent<CreateRescueNeeded>().person[i].GetComponent<WhereAmI>().position);
             }
             else
             {
                 sensor.AddObservation(0);
-                Debug.Log("0");
             }
         }
 
         for(int i=0;i<9;i++)
         {
-            //Debug.Log(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>());
             sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().roomPeopleNum); 
         }
 

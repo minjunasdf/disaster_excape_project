@@ -7,15 +7,13 @@ public class GoalPoint : MonoBehaviour
 {
     // Start is called before the first frame update
     int goalPosition;
-    void Start()
-    {
-        goalPosition = GameObject.Find("Area").GetComponent<ExcapeAgent>().exit;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        switch(goalPosition)
+        goalPosition = GameObject.Find("Area").GetComponent<ExcapeAgent>().exit;
+
+        switch (goalPosition)
         {
             case 0:
                 this.transform.localPosition = new Vector3(-7, 1, 7);

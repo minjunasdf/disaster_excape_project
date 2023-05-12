@@ -17,6 +17,7 @@ TagManager:
   - room7
   - room8
   - room0
+  - fire
   layers:
   - Default
   - TransparentFX
