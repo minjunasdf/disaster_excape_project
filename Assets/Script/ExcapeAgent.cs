@@ -55,7 +55,6 @@ public class ExcapeAgent : Agent
         {
             sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().roomPeopleNum); 
         }
-
     }
 
     
