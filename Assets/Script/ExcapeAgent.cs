@@ -90,6 +90,16 @@ public class ExcapeAgent : Agent
         }
     }
 
+    public void SomeontHasDied()
+    {
+        remainPeople--;
+        AddReward(-1.0f);
+        if (remainPeople == 0)
+        {
+            EndEpisode();
+        }
+    }
+
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {

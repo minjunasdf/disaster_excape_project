@@ -18,12 +18,14 @@ public class CreateRescueNeeded : MonoBehaviour
 
     public void Init()
     {
+        i = 0; g = 0;
+        random_number = new int[10];
         while (i < totalPeopleNum)
         {
             bool dab = true;
             while (dab)
             {
-                g = Random.Range(0, 90);
+                g = Random.Range(0, 89);
                 dab = false;
                 for (int ag = 0; ag < i; ag++)
                 {
