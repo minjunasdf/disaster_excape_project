@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 35543536}
   - component: {fileID: 35543537}
+  - component: {fileID: 35543538}
   m_Layer: 0
   m_Name: door (1)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,6 +169,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &35543538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35543535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 51e5701c2bc9051438d8e769371818fd, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: ec2f21c4648872c408b553dadaf0472d, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &71230327
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +965,7 @@ GameObject:
   - component: {fileID: 326310082}
   - component: {fileID: 326310083}
   - component: {fileID: 326310084}
+  - component: {fileID: 326310085}
   m_Layer: 0
   m_Name: check (2)
   m_TagString: room2
@@ -1006,6 +1024,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &326310085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326310081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &354506709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,6 +1494,7 @@ GameObject:
   - component: {fileID: 522966584}
   - component: {fileID: 522966585}
   - component: {fileID: 522966586}
+  - component: {fileID: 522966587}
   m_Layer: 0
   m_Name: check (6)
   m_TagString: room6
@@ -1519,6 +1553,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &522966587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522966583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &537281054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,9 +1767,10 @@ GameObject:
   m_Component:
   - component: {fileID: 631303775}
   - component: {fileID: 631303776}
+  - component: {fileID: 631303777}
   m_Layer: 0
   m_Name: door (2)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1753,6 +1803,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &631303777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631303774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 51e5701c2bc9051438d8e769371818fd, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: ec2f21c4648872c408b553dadaf0472d, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &701768656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,6 +1923,7 @@ GameObject:
   - component: {fileID: 761624795}
   - component: {fileID: 761624796}
   - component: {fileID: 761624797}
+  - component: {fileID: 761624798}
   m_Layer: 0
   m_Name: check (1)
   m_TagString: room1
@@ -1915,6 +1982,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &761624798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761624794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &762294188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2519,7 @@ GameObject:
   - component: {fileID: 889154438}
   - component: {fileID: 889154439}
   - component: {fileID: 889154440}
+  - component: {fileID: 889154441}
   m_Layer: 0
   m_Name: check (4)
   m_TagString: room4
@@ -2495,6 +2578,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &889154441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889154437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1001 &891513944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2865,9 +2963,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1084070130}
   - component: {fileID: 1084070131}
+  - component: {fileID: 1084070132}
   m_Layer: 0
   m_Name: door (8)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2900,6 +2999,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1084070132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084070129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 81b8d80d5fa82b04881884c994bfdba0, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: a5c81847798bbe4469bf4f5a696aa099, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1093256563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,9 +3056,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1099748016}
   - component: {fileID: 1099748017}
+  - component: {fileID: 1099748018}
   m_Layer: 0
   m_Name: door (5)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2976,6 +3092,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1099748018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099748015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 81b8d80d5fa82b04881884c994bfdba0, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: a5c81847798bbe4469bf4f5a696aa099, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1111746775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,6 +3252,7 @@ GameObject:
   - component: {fileID: 1131678384}
   - component: {fileID: 1131678385}
   - component: {fileID: 1131678386}
+  - component: {fileID: 1131678387}
   m_Layer: 0
   m_Name: check (8)
   m_TagString: room8
@@ -3178,6 +3311,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &1131678387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131678383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1150835088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,9 +3367,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1168638948}
   - component: {fileID: 1168638949}
+  - component: {fileID: 1168638950}
   m_Layer: 0
   m_Name: door (11)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3254,6 +3403,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1168638950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168638947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 51e5701c2bc9051438d8e769371818fd, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: ec2f21c4648872c408b553dadaf0472d, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1169107994
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,9 +3429,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1169107995}
   - component: {fileID: 1169107996}
+  - component: {fileID: 1169107997}
   m_Layer: 0
   m_Name: door (7)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3299,6 +3465,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1169107997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169107994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 51e5701c2bc9051438d8e769371818fd, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: ec2f21c4648872c408b553dadaf0472d, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!4 &1190141630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3868919599530051022, guid: 56cb9486ac29b814e854d380aea4aaed, type: 3}
@@ -3314,9 +3496,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1198077413}
   - component: {fileID: 1198077414}
+  - component: {fileID: 1198077415}
   m_Layer: 0
   m_Name: door (10)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3349,6 +3532,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1198077415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198077412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 81b8d80d5fa82b04881884c994bfdba0, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: a5c81847798bbe4469bf4f5a696aa099, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1212506704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3652,9 +3851,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1273493343}
   - component: {fileID: 1273493344}
+  - component: {fileID: 1273493345}
   m_Layer: 0
   m_Name: door (6)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3687,6 +3887,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1273493345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273493342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 51e5701c2bc9051438d8e769371818fd, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: ec2f21c4648872c408b553dadaf0472d, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1275087332
 GameObject:
   m_ObjectHideFlags: 0
@@ -4015,6 +4231,7 @@ GameObject:
   - component: {fileID: 1353106174}
   - component: {fileID: 1353106175}
   - component: {fileID: 1353106176}
+  - component: {fileID: 1353106177}
   m_Layer: 0
   m_Name: check (7)
   m_TagString: room7
@@ -4073,6 +4290,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &1353106177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353106173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1359588902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4083,9 +4315,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1359588903}
   - component: {fileID: 1359588904}
+  - component: {fileID: 1359588905}
   m_Layer: 0
   m_Name: door (3)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4118,6 +4351,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1359588905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359588902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 81b8d80d5fa82b04881884c994bfdba0, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: a5c81847798bbe4469bf4f5a696aa099, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1367936127
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,6 +4440,7 @@ GameObject:
   - component: {fileID: 1386800846}
   - component: {fileID: 1386800847}
   - component: {fileID: 1386800848}
+  - component: {fileID: 1386800849}
   m_Layer: 0
   m_Name: check (3)
   m_TagString: room3
@@ -4249,6 +4499,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &1386800849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386800845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1389464745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4321,9 +4586,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1418462558}
   - component: {fileID: 1418462559}
+  - component: {fileID: 1418462560}
   m_Layer: 0
   m_Name: door (12)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4356,6 +4622,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 1, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1418462560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418462557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 51e5701c2bc9051438d8e769371818fd, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: ec2f21c4648872c408b553dadaf0472d, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1443516376
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,6 +4680,7 @@ GameObject:
   - component: {fileID: 1463628480}
   - component: {fileID: 1463628481}
   - component: {fileID: 1463628482}
+  - component: {fileID: 1463628483}
   m_Layer: 0
   m_Name: check (5)
   m_TagString: room5
@@ -4456,6 +4739,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &1463628483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463628479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1001 &1472741388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4902,7 +5200,6 @@ GameObject:
   - component: {fileID: 1641236314}
   - component: {fileID: 1641236312}
   - component: {fileID: 1641236311}
-  - component: {fileID: 1641236315}
   m_Layer: 0
   m_Name: Area
   m_TagString: Untagged
@@ -6026,6 +6323,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  disasterType: 0
 --- !u!4 &1641236310
 Transform:
   m_ObjectHideFlags: 0
@@ -6108,32 +6406,6 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
---- !u!114 &1641236315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641236308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b503ebf4c865f046a385711c1eb2324, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Doors:
-  - {fileID: 35543535}
-  - {fileID: 631303774}
-  - {fileID: 1359588902}
-  - {fileID: 1845133439}
-  - {fileID: 1099748015}
-  - {fileID: 1273493342}
-  - {fileID: 1169107994}
-  - {fileID: 1084070129}
-  - {fileID: 1955585488}
-  - {fileID: 1198077412}
-  - {fileID: 1168638947}
-  - {fileID: 1418462557}
-  disasterType: 1
 --- !u!1 &1653181872
 GameObject:
   m_ObjectHideFlags: 0
@@ -6145,6 +6417,7 @@ GameObject:
   - component: {fileID: 1653181873}
   - component: {fileID: 1653181874}
   - component: {fileID: 1653181875}
+  - component: {fileID: 1653181876}
   m_Layer: 0
   m_Name: check (0)
   m_TagString: room0
@@ -6203,6 +6476,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPeopleNum: 0
+--- !u!114 &1653181876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653181872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793072e133604a546961eb7226f8113b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1654641311
 GameObject:
   m_ObjectHideFlags: 0
@@ -6704,9 +6992,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1845133440}
   - component: {fileID: 1845133441}
+  - component: {fileID: 1845133442}
   m_Layer: 0
   m_Name: door (4)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6739,6 +7028,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1845133442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845133439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 81b8d80d5fa82b04881884c994bfdba0, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: a5c81847798bbe4469bf4f5a696aa099, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1850299183
 GameObject:
   m_ObjectHideFlags: 0
@@ -6904,9 +7209,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1955585489}
   - component: {fileID: 1955585490}
+  - component: {fileID: 1955585491}
   m_Layer: 0
   m_Name: door (9)
-  m_TagString: Untagged
+  m_TagString: door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6939,6 +7245,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 1.4}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1955585491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955585488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41900223b758b140af3a68df63ecb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorFire: {fileID: 2640082520933052943, guid: 81b8d80d5fa82b04881884c994bfdba0, type: 3}
+  DoorCrash: {fileID: 7367563703878948396, guid: a5c81847798bbe4469bf4f5a696aa099, type: 3}
+  onFire: 0
+  isRisky: 0
 --- !u!1 &1960034283
 GameObject:
   m_ObjectHideFlags: 0

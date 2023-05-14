@@ -90,7 +90,7 @@ public class ExcapeAgent : Agent
         }
     }
 
-    public void SomeontHasDied()
+    public void SomeoneHasDied()
     {
         remainPeople--;
         AddReward(-1.0f);

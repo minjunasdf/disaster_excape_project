@@ -8,7 +8,7 @@ public class AmIBurning : MonoBehaviour
     {
         if (other.CompareTag("fire"))
         {
-            GameObject.Find("Area").GetComponent<ExcapeAgent>().SomeontHasDied();
+            GameObject.Find("Area").GetComponent<ExcapeAgent>().SomeoneHasDied();
             this.GetComponent<ChkExit>().IWantToDie();
         }
     }

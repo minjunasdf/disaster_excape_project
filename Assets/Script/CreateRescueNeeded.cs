@@ -14,10 +14,11 @@ public class CreateRescueNeeded : MonoBehaviour
     public GameObject[] SpawnPoint = new GameObject[90]; // Make Spawnpoint objects
     public GameObject[] Rooms = new GameObject[9]; // Get Room objects
     public GameObject[] person = new GameObject[1000];
-
+    public int disasterType; // 0이면 지진, 1이면 화재, 2면 둘다
 
     public void Init()
     {
+        disasterType = (int)Random.Range(0, 3);
         i = 0; g = 0;
         random_number = new int[10];
         while (i < totalPeopleNum)
