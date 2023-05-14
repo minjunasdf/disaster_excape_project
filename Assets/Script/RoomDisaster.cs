@@ -16,6 +16,7 @@ public class RoomDisaster : MonoBehaviour
     void Start()
     {
         Area = GameObject.Find("Area");
+        SpawnedFire = Instantiate(RoomFire, this.transform.position, Quaternion.identity);
     }
     
     void Update()
@@ -36,7 +37,7 @@ public class RoomDisaster : MonoBehaviour
             if (prob < fireProb)
             {
                 onFire = true;
-                SpawnedFire = Instantiate(RoomFire, transform.position, Quaternion.identity);
+                SpawnedFire.SetActive(true);
             }
         }
         
@@ -44,11 +45,11 @@ public class RoomDisaster : MonoBehaviour
 
     public void Init()
     {
-        Destroy(SpawnedFire);
+        SpawnedFire.SetActive(false);
         fireProb = 0;
         if (onFire && Area.GetComponent<ExcapeAgent>().disasterType > 0)
         {
-            SpawnedFire=Instantiate(RoomFire, this.transform.position, Quaternion.identity);
+            SpawnedFire.SetActive(true);
         }
         isRisky = false;
     }

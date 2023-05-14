@@ -58,7 +58,7 @@ public class DoorDisaster : MonoBehaviour
     {
         if (other.tag.Contains("room"))
         {
-            Debug.Log("asdf");
+            //Debug.Log("asdf");
             if (other.GetComponent<RoomDisaster>().isRisky)
             {
                 riskRate += 10e-7;

@@ -21,7 +21,7 @@ public class CreateRescueNeeded : MonoBehaviour
         g = 0;
         random_number = new int[totalPeopleNum];
         person = new GameObject[totalPeopleNum];
-        for(int i = 0; i < totalPeopleNum; i++)
+        for(int i = 0; i < 10; i++)  // totalpeoplenum
         {
             bool dab = true;
             while (dab)
@@ -34,21 +34,31 @@ public class CreateRescueNeeded : MonoBehaviour
                     if (g == random_number[ag] || this.GetComponent<ExcapeAgent>().exit == (int)(g / 10) || this.GetComponent<ExcapeAgent>().fire == (int)(g / 10))
                     {
                         dab = true;
+                        break;
                     }
                 }
             }
-            Debug.Log(g);
+            //Debug.Log(g);
             random_number[i] = g;
         }
 
-        for (int j = 0; j < totalPeopleNum; j++)
+        for (int j = 0; j < 10; j++) // totalpeoplenum
         {
-            person[j] = Instantiate(RescueObject, SpawnPoint[random_number[j]].transform.position, Quaternion.identity);
-            person[j].GetComponent<ChkExit>().personIndex = j;
-            person[j].GetComponent<ChkExit>().episodeMade = episodes;
+            if (episodes == 1)
+            {
+                person[j] = Instantiate(RescueObject, SpawnPoint[random_number[j]].transform.position, Quaternion.identity);
+                person[j].transform.SetParent(GameObject.Find("Parent").transform);
+                person[j].name = "people"+j.ToString();
+            }
+            GameObject tmp = GameObject.Find("Parent").transform.GetChild(j).gameObject;
+            tmp.SetActive(false);
+            tmp.transform.position = SpawnPoint[random_number[j]].transform.position;
+            tmp.GetComponent<ChkExit>().episodeMade = episodes;
             scaletmp = Random.Range(0.8f, 1.2f);
-            person[j].transform.localScale = new Vector3(scaletmp,scaletmp,scaletmp);
-            person[j].GetComponent<UnityEngine.AI.NavMeshAgent>().speed = Random.Range(3.0f, 4.0f);
+            tmp.transform.localScale = new Vector3(scaletmp,scaletmp,scaletmp);
+            tmp.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = Random.Range(3.0f, 4.0f);
+            tmp.SetActive(true);
+            person[j] = tmp;
         }
     }
 }

@@ -14,15 +14,16 @@ public class ChkExit : MonoBehaviour
 
     public void ItExcaped()
     {
-        Debug.Log("Exc: "+personIndex);
+        //Debug.Log("Exc: "+personIndex);
+        GameObject.Find("Area").GetComponent<ExcapeAgent>().remainPeople -= 1;
         GameObject.Find("Area").GetComponent<ExcapeAgent>().SomeoneHasExited();
         IWantToDie();
     }
 
     public void IWantToDie()
     {
-        GameObject.Find("Area").GetComponent<CreateRescueNeeded>().person[personIndex] = null;
-        Destroy(this.gameObject);
+        //GameObject.Find("Area").GetComponent<CreateRescueNeeded>().person[personIndex].SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     //public void Kill() { Destroy(this.gameObject); }

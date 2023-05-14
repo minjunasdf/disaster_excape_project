@@ -20,13 +20,6 @@ public class ExcapeAgent : Agent
     public override void OnEpisodeBegin()
     {
         episodes += 1;
-        for (int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
-        {
-            if (this.GetComponent<CreateRescueNeeded>().person[k] != null)
-            {
-                this.GetComponent<CreateRescueNeeded>().person[k].GetComponent<ChkExit>().IWantToDie();
-            }
-        }
         for (int i = 0; i < doors.Length;i++) {
             doors[i].GetComponent<DoorDisaster>().Init();
         }
@@ -96,11 +89,7 @@ public class ExcapeAgent : Agent
         {
             if (this.GetComponent<CreateRescueNeeded>().person[j] != null)
             {
-                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = -1;//act[j];
-            }
-            else
-            {
-                this.GetComponent<CreateRescueNeeded>().person[j] = null;
+                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = 0;//act[j];
             }
         }
     }
@@ -108,7 +97,6 @@ public class ExcapeAgent : Agent
 
     public void SomeoneHasExited()
     {
-        remainPeople--;
         if (remainPeople == 0)
         {
             EndEpisode();
@@ -117,7 +105,6 @@ public class ExcapeAgent : Agent
 
     public void SomeoneHasDied()
     {
-        remainPeople--;
         AddReward(-1.0f);
         if (remainPeople == 0)
         {

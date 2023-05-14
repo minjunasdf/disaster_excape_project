@@ -19,9 +19,9 @@ public class WhereAmI : MonoBehaviour
         else if (other.CompareTag("room8")) position = 8;
         else if (other.CompareTag("room0")) position = 0;
 
-        if(position == GameObject.Find("Area").GetComponent<ExcapeAgent>().exit && this.GetComponent<ChkExit>().episodeMade == GameObject.Find("Area").GetComponent<ExcapeAgent>().episodes)
+        if(position == GameObject.Find("Area").GetComponent<ExcapeAgent>().exit)
         {
-            Debug.Log(this.GetComponent<ChkExit>().episodeMade+" "+GameObject.Find("Area").GetComponent<ExcapeAgent>().episodes);
+            //Debug.Log(this.GetComponent<ChkExit>().episodeMade+" "+GameObject.Find("Area").GetComponent<ExcapeAgent>().episodes);
             this.GetComponent<ChkExit>().ItExcaped();
         }
     }
