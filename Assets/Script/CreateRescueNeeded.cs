@@ -26,14 +26,16 @@ public class CreateRescueNeeded : MonoBehaviour
             {
                 g = Random.Range(0, 90);
                 dab = false;
+                if (this.GetComponent<ExcapeAgent>().exit == (int)(g / 10) || this.GetComponent<ExcapeAgent>().fire == (int)(g / 10)) dab = true;
                 for (int ag = 0; ag < i; ag++)
                 {
-                    if (g == random_number[ag] || this.GetComponent<ExcapeAgent>().exit == (int)(g / 10) || this.GetComponent<ExcapeAgent>().fire == (int) (g/10))
+                    if (g == random_number[ag] || this.GetComponent<ExcapeAgent>().exit == (int)(g / 10) || this.GetComponent<ExcapeAgent>().fire == (int)(g / 10))
                     {
                         dab = true;
                     }
                 }
             }
+            Debug.Log(g);
             random_number[i] = g;
         }
 

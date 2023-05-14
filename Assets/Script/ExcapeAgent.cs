@@ -20,12 +20,7 @@ public class ExcapeAgent : Agent
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
-        exit = Random.Range(0, 9); // 끝 숫자 포함 안됨
         disasterType = (int)Random.Range(0, 3);
-        if (disasterType > 0)
-        {
-            fire = Random.Range(0, 9);
-        }
         for (int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
         {
             if (this.GetComponent<CreateRescueNeeded>().person[k] != null)
@@ -37,7 +32,14 @@ public class ExcapeAgent : Agent
                 this.GetComponent<CreateRescueNeeded>().person[k] = null;
             }
         }
-
+        if (disasterType > 0)
+        {
+            fire = Random.Range(0, 9);
+        }
+        else
+        {
+            fire = -1;
+        }
         for (int i = 0; i < doors.Length;i++) {
             doors[i].GetComponent<DoorDisaster>().Init();
         }
@@ -56,7 +58,10 @@ public class ExcapeAgent : Agent
             }
             this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().Init();
         }
+        exit = Random.Range(0, 9); // 끝 숫자 포함 안됨
+
         this.GetComponent<CreateRescueNeeded>().Init();
+        
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
         SetReward(2f);
     }

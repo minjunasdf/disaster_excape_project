@@ -14,6 +14,7 @@ public class ChkExit : MonoBehaviour
 
     public void ItExcaped()
     {
+        Debug.Log("Exc: "+personIndex);
         Area.GetComponent<ExcapeAgent>().SomeoneHasExited();
         IWantToDie();
     }

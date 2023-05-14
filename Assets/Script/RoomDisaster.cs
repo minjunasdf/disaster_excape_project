@@ -6,6 +6,7 @@ public class RoomDisaster : MonoBehaviour
 {
     private GameObject Area;
     public GameObject RoomFire;
+    public GameObject SpawnedFire;
     private double fireProb;
     public bool onFire;
     public bool isRisky;
@@ -29,20 +30,25 @@ public class RoomDisaster : MonoBehaviour
                 }
             }
         }
-        prob = Random.Range(0f, 1f);
-        if (prob < fireProb)
+        if (onFire == false)
         {
-            onFire = true;
-            Instantiate(RoomFire, transform.position, Quaternion.identity);
+            prob = Random.Range(0f, 1f);
+            if (prob < fireProb)
+            {
+                onFire = true;
+                SpawnedFire = Instantiate(RoomFire, transform.position, Quaternion.identity);
+            }
         }
+        
     }
 
     public void Init()
     {
+        Destroy(SpawnedFire);
         fireProb = 0;
         if (onFire)
         {
-            Instantiate(RoomFire, this.transform.position, Quaternion.identity);
+            SpawnedFire=Instantiate(RoomFire, this.transform.position, Quaternion.identity);
         }
         isRisky = false;
     }

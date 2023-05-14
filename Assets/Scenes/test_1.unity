@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1037,6 +1037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -1571,6 +1572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -2005,6 +2007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -2606,6 +2609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -2935,7 +2939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039053636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.64, y: 0, z: 1.97}
+  m_LocalPosition: {x: 1.64, y: 0, z: 1.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3344,6 +3348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -4328,6 +4333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -4542,6 +4548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -4787,6 +4794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
@@ -5240,6 +5248,7 @@ GameObject:
   - component: {fileID: 1641236314}
   - component: {fileID: 1641236312}
   - component: {fileID: 1641236311}
+  - component: {fileID: 1641236315}
   m_Layer: 0
   m_Name: Area
   m_TagString: Untagged
@@ -6398,7 +6407,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 100
   remainPeople: 0
   exit: 0
   fire: 0
@@ -6460,6 +6469,22 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!114 &1641236315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641236308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b6042bc9a5d4aa58d931eae49442e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
 --- !u!1 &1653181872
 GameObject:
   m_ObjectHideFlags: 0
@@ -6543,6 +6568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
+  SpawnedFire: {fileID: 0}
   onFire: 0
   isRisky: 0
   DoorsThatAreNear:
