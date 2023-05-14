@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class ChkExit : MonoBehaviour
 {
-    private GameObject Area;
     public int personIndex; // person의 인덱스이면서 일련번호
+    public int episodeMade;
 
     void Start()
     {
-        Area = GameObject.Find("Area");
+
     }
 
     public void ItExcaped()
     {
         Debug.Log("Exc: "+personIndex);
-        Area.GetComponent<ExcapeAgent>().SomeoneHasExited();
+        GameObject.Find("Area").GetComponent<ExcapeAgent>().SomeoneHasExited();
         IWantToDie();
     }
 
     public void IWantToDie()
     {
-        Area.GetComponent<CreateRescueNeeded>().person[personIndex] = null;
+        GameObject.Find("Area").GetComponent<CreateRescueNeeded>().person[personIndex] = null;
         Destroy(this.gameObject);
     }
 

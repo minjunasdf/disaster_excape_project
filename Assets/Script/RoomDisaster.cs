@@ -30,7 +30,7 @@ public class RoomDisaster : MonoBehaviour
                 }
             }
         }
-        if (onFire == false)
+        if (onFire == false && Area.GetComponent<ExcapeAgent>().disasterType > 0)
         {
             prob = Random.Range(0f, 1f);
             if (prob < fireProb)
@@ -46,7 +46,7 @@ public class RoomDisaster : MonoBehaviour
     {
         Destroy(SpawnedFire);
         fireProb = 0;
-        if (onFire)
+        if (onFire && Area.GetComponent<ExcapeAgent>().disasterType > 0)
         {
             SpawnedFire=Instantiate(RoomFire, this.transform.position, Quaternion.identity);
         }

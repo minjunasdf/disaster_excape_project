@@ -6,32 +6,31 @@ using Unity.MLAgents.Sensors;
 
 public class ExcapeAgent : Agent
 {
-    public int remainPeople, exit, fire;
+    public int remainPeople, exit, fire, episodes;
     public GameObject[] doors=new GameObject[12];
     public int disasterType; // 0이면 지진, 1이면 화재, 2면 둘다
-    
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
     {
-
+        episodes = 0;
     }
 
 
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
-        disasterType = (int)Random.Range(0, 3);
+        episodes += 1;
         for (int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
         {
             if (this.GetComponent<CreateRescueNeeded>().person[k] != null)
             {
                 this.GetComponent<CreateRescueNeeded>().person[k].GetComponent<ChkExit>().IWantToDie();
             }
-            else
-            {
-                this.GetComponent<CreateRescueNeeded>().person[k] = null;
-            }
         }
+        for (int i = 0; i < doors.Length;i++) {
+            doors[i].GetComponent<DoorDisaster>().Init();
+        }
+        disasterType = (int)Random.Range(0, 3);
         if (disasterType > 0)
         {
             fire = Random.Range(0, 9);
@@ -39,9 +38,6 @@ public class ExcapeAgent : Agent
         else
         {
             fire = -1;
-        }
-        for (int i = 0; i < doors.Length;i++) {
-            doors[i].GetComponent<DoorDisaster>().Init();
         }
         for (int i=0;i<this.GetComponent<CreateRescueNeeded>().Rooms.Length;i++)
         {
@@ -59,9 +55,7 @@ public class ExcapeAgent : Agent
             this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().Init();
         }
         exit = Random.Range(0, 9); // 끝 숫자 포함 안됨
-
-        this.GetComponent<CreateRescueNeeded>().Init();
-        
+        this.GetComponent<CreateRescueNeeded>().Init(episodes);
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
         SetReward(2f);
     }

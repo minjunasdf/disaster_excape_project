@@ -13,12 +13,14 @@ public class CreateRescueNeeded : MonoBehaviour
     int g = 0;
     public GameObject[] SpawnPoint = new GameObject[90]; // Make Spawnpoint objects
     public GameObject[] Rooms = new GameObject[9]; // Get Room objects
-    public GameObject[] person = new GameObject[1000];
+    public GameObject[] person = new GameObject[100];
+    float scaletmp;
 
-    public void Init()
+    public void Init(int episodes)
     {
         g = 0;
         random_number = new int[totalPeopleNum];
+        person = new GameObject[totalPeopleNum];
         for(int i = 0; i < totalPeopleNum; i++)
         {
             bool dab = true;
@@ -43,6 +45,10 @@ public class CreateRescueNeeded : MonoBehaviour
         {
             person[j] = Instantiate(RescueObject, SpawnPoint[random_number[j]].transform.position, Quaternion.identity);
             person[j].GetComponent<ChkExit>().personIndex = j;
+            person[j].GetComponent<ChkExit>().episodeMade = episodes;
+            scaletmp = Random.Range(0.8f, 1.2f);
+            person[j].transform.localScale = new Vector3(scaletmp,scaletmp,scaletmp);
+            person[j].GetComponent<UnityEngine.AI.NavMeshAgent>().speed = Random.Range(3.0f, 4.0f);
         }
     }
 }
