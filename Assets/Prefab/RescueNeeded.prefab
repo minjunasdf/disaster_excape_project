@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f65bd6d5360dd4ead91f6233867f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Area: {fileID: 0}
   personIndex: 0
 --- !u!114 &-3625900691271238598
 MonoBehaviour:
@@ -168,8 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa4c6e119d13a44996cba5462a63ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Area: {fileID: 0}
-  Destination: 0
+  Destination: -1
 --- !u!114 &5867106962951349670
 MonoBehaviour:
   m_ObjectHideFlags: 0

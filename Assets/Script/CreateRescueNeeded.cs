@@ -10,34 +10,31 @@ public class CreateRescueNeeded : MonoBehaviour
     //public GameObject[] Exit = new GameObject[4];   // Get Exit object
     public int totalPeopleNum;
     int[] random_number = new int[10];
-    int i, g = 0;
+    int g = 0;
     public GameObject[] SpawnPoint = new GameObject[90]; // Make Spawnpoint objects
     public GameObject[] Rooms = new GameObject[9]; // Get Room objects
     public GameObject[] person = new GameObject[1000];
-    public int disasterType; // 0이면 지진, 1이면 화재, 2면 둘다
 
     public void Init()
     {
-        disasterType = (int)Random.Range(0, 3);
-        i = 0; g = 0;
-        random_number = new int[10];
-        while (i < totalPeopleNum)
+        g = 0;
+        random_number = new int[totalPeopleNum];
+        for(int i = 0; i < totalPeopleNum; i++)
         {
             bool dab = true;
             while (dab)
             {
-                g = Random.Range(0, 89);
+                g = Random.Range(0, 90);
                 dab = false;
                 for (int ag = 0; ag < i; ag++)
                 {
-                    if (g == random_number[ag] || this.GetComponent<ExcapeAgent>().exit == g / 10)
+                    if (g == random_number[ag] || this.GetComponent<ExcapeAgent>().exit == (int)(g / 10) || this.GetComponent<ExcapeAgent>().fire == (int) (g/10))
                     {
                         dab = true;
                     }
                 }
             }
             random_number[i] = g;
-            i++;
         }
 
         for (int j = 0; j < totalPeopleNum; j++)

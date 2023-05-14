@@ -6,8 +6,10 @@ using Unity.MLAgents.Sensors;
 
 public class ExcapeAgent : Agent
 {
-    public int remainPeople, exit;
-
+    public int remainPeople, exit, fire;
+    public GameObject[] doors=new GameObject[12];
+    public int disasterType; // 0이면 지진, 1이면 화재, 2면 둘다
+    
     //초기화 작업을 위해 한번 호출되는 메소드
     public override void Initialize()
     {
@@ -18,7 +20,12 @@ public class ExcapeAgent : Agent
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
-        exit = Random.Range(0, 8);
+        exit = Random.Range(0, 9); // 끝 숫자 포함 안됨
+        disasterType = (int)Random.Range(0, 3);
+        if (disasterType > 0)
+        {
+            fire = Random.Range(0, 9);
+        }
         for (int k= 0; k < this.GetComponent<CreateRescueNeeded>().totalPeopleNum;k++)
         {
             if (this.GetComponent<CreateRescueNeeded>().person[k] != null)
@@ -29,6 +36,25 @@ public class ExcapeAgent : Agent
             {
                 this.GetComponent<CreateRescueNeeded>().person[k] = null;
             }
+        }
+
+        for (int i = 0; i < doors.Length;i++) {
+            doors[i].GetComponent<DoorDisaster>().Init();
+        }
+        for (int i=0;i<this.GetComponent<CreateRescueNeeded>().Rooms.Length;i++)
+        {
+            if (disasterType > 0)
+            {
+                if (fire == i)
+                {
+                    this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().onFire = true;
+                }
+                else
+                {
+                    this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().onFire = false;
+                }
+            }
+            this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().Init();
         }
         this.GetComponent<CreateRescueNeeded>().Init();
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
@@ -71,7 +97,7 @@ public class ExcapeAgent : Agent
         {
             if (this.GetComponent<CreateRescueNeeded>().person[j] != null)
             {
-                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = act[j];
+                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = -1;//act[j];
             }
             else
             {

@@ -10,43 +10,40 @@ public class RoomDisaster : MonoBehaviour
     public bool onFire;
     public bool isRisky;
     private double prob;
+    public GameObject[] DoorsThatAreNear = new GameObject[4];
 
     void Start()
     {
         Area = GameObject.Find("Area");
-        if (Area.GetComponent<CreateRescueNeeded>().disasterType > 0)
-        {
-            fireProb = 10e-1;
-        }
-        fireProb = 0;
-        onFire = false;
-        isRisky = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other.tag);
-        if (other.CompareTag("door"))
+        for(int i = 0; i < 4; i++)
         {
-            Debug.Log("asdf");
-            if (other.GetComponent<DoorDisaster>().onFire)
+            if (DoorsThatAreNear[i] != null && onFire == false)
             {
-                fireProb += 10e-5;
-                prob = Random.Range(0f, 1f);
-                if (prob < fireProb)
+                if (DoorsThatAreNear[i].GetComponent<DoorDisaster>().onFire)
                 {
-                    onFire = true;
-                    Instantiate(RoomFire, this.transform.position, Quaternion.identity);
-
+                    fireProb += 10e-5;
                 }
             }
-            if (other.GetComponent<DoorDisaster>().isRisky) isRisky = true;
         }
+        prob = Random.Range(0f, 1f);
+        if (prob < fireProb)
+        {
+            onFire = true;
+            Instantiate(RoomFire, transform.position, Quaternion.identity);
+        }
+    }
+
+    public void Init()
+    {
+        fireProb = 0;
+        if (onFire)
+        {
+            Instantiate(RoomFire, this.transform.position, Quaternion.identity);
+        }
+        isRisky = false;
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 public class MoveToSomewhere : MonoBehaviour
 {
     UnityEngine.AI.NavMeshAgent agent;
-    public GameObject Area;
+    private GameObject Area;
     //Vector3[] coord = new[] { new Vector3(7, 1, 0), new Vector3(7, 1, 7), new Vector3(7, 1, -7), new Vector3(0, 1, 0), new Vector3(0, 1, 7), new Vector3(0, 1, -7), new Vector3(-7, 1, 0), new Vector3(-7, 1, 7) };
-    public int Destination;     // Destination (room number)
+    public int Destination=0;     // Destination (room number)
 
 
     void Start()

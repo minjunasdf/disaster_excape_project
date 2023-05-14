@@ -16,24 +16,14 @@ public class DoorDisaster : MonoBehaviour
     void Start()
     {
         Area = GameObject.Find("Area");
-        if (Area.GetComponent<CreateRescueNeeded>().disasterType % 2 == 0)
-        {
-            riskRate = 10e-1;
-        }
-        if (Area.GetComponent<CreateRescueNeeded>().disasterType > 0)
-        {
-            fireProb = 10e-1;
-        }
-        fireProb = 0;
-        onFire = false;
-        riskRate = 0;
-        isRisky = false;
-    }
 
+    }
 
     void Update()
     {
-        if (Area.GetComponent<CreateRescueNeeded>().disasterType % 2 == 0) // 지진
+        
+        transform.Translate(Vector3.back);
+        if (Area.GetComponent<ExcapeAgent>().disasterType % 2 == 0) // 지진
         {
             prob = Random.Range(0f, 1f);
             if (prob < riskRate)
@@ -42,7 +32,28 @@ public class DoorDisaster : MonoBehaviour
                 Instantiate(DoorCrash, this.transform.position, Quaternion.identity);
             }
         }
+        transform.Translate(Vector3.forward);
+
+        prob = Random.Range(0f, 1f);
+        if (prob < fireProb)
+        {
+            onFire = true;
+            Instantiate(DoorFire, this.transform.position, Quaternion.identity);
+        }
     }
+
+    public void Init()
+    {
+        if (Area.GetComponent<ExcapeAgent>().disasterType % 2 == 0)
+        {
+            riskRate = 10e-6;
+        }
+        fireProb = 0;
+        onFire = false;
+        riskRate = 0;
+        isRisky = false;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag.Contains("room"))
@@ -50,17 +61,11 @@ public class DoorDisaster : MonoBehaviour
             Debug.Log("asdf");
             if (other.GetComponent<RoomDisaster>().isRisky)
             {
-                riskRate += 10e-5;
+                riskRate += 10e-7;
             }
             if (other.GetComponent<RoomDisaster>().onFire)
             {
-                fireProb += 10e-5;
-                prob = Random.Range(0f, 1f);
-                if (prob<fireProb)
-                {
-                    onFire = true;
-                    Instantiate(DoorFire, this.transform.position, Quaternion.identity);
-                }
+                fireProb += 10e-7;
             }
         }
     }

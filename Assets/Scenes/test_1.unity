@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1039,6 +1039,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1099748015}
+  - {fileID: 631303774}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &354506709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1573,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1084070129}
+  - {fileID: 1168638947}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &537281054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2007,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1845133439}
+  - {fileID: 35543535}
+  - {fileID: 631303774}
+  - {fileID: 0}
 --- !u!1 &762294188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2608,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1845133439}
+  - {fileID: 1955585488}
+  - {fileID: 1273493342}
+  - {fileID: 1169107994}
 --- !u!1001 &891513944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3326,6 +3346,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1198077412}
+  - {fileID: 1418462557}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1150835088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,6 +4330,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1955585488}
+  - {fileID: 1168638947}
+  - {fileID: 1418462557}
+  - {fileID: 0}
 --- !u!1 &1359588902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4514,6 +4544,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1359588902}
+  - {fileID: 1084070129}
+  - {fileID: 1273493342}
+  - {fileID: 0}
 --- !u!1 &1389464745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4754,6 +4789,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1099748015}
+  - {fileID: 1198077412}
+  - {fileID: 1169107994}
+  - {fileID: 0}
 --- !u!1001 &1472741388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6323,7 +6363,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  disasterType: 0
 --- !u!4 &1641236310
 Transform:
   m_ObjectHideFlags: 0
@@ -6362,6 +6401,21 @@ MonoBehaviour:
   MaxStep: 1000
   remainPeople: 0
   exit: 0
+  fire: 0
+  doors:
+  - {fileID: 35543535}
+  - {fileID: 631303774}
+  - {fileID: 1359588902}
+  - {fileID: 1845133439}
+  - {fileID: 1099748015}
+  - {fileID: 1273493342}
+  - {fileID: 1169107994}
+  - {fileID: 1084070129}
+  - {fileID: 1955585488}
+  - {fileID: 1198077412}
+  - {fileID: 1168638947}
+  - {fileID: 1418462557}
+  disasterType: 2
 --- !u!114 &1641236312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6491,6 +6545,11 @@ MonoBehaviour:
   RoomFire: {fileID: 2330721485906373554, guid: f3978d3f38666634c93ab9d01fc3671e, type: 3}
   onFire: 0
   isRisky: 0
+  DoorsThatAreNear:
+  - {fileID: 1359588902}
+  - {fileID: 35543535}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1654641311
 GameObject:
   m_ObjectHideFlags: 0
