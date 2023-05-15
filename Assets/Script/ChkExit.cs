@@ -14,7 +14,7 @@ public class ChkExit : MonoBehaviour
 
     public void ItExcaped()
     {
-        //Debug.Log("Exc: "+personIndex);
+        Debug.Log("Exc: "+personIndex);
         GameObject.Find("Area").GetComponent<ExcapeAgent>().remainPeople -= 1;
         GameObject.Find("Area").GetComponent<ExcapeAgent>().SomeoneHasExited();
         IWantToDie();

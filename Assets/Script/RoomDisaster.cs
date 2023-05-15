@@ -7,7 +7,7 @@ public class RoomDisaster : MonoBehaviour
     private GameObject Area;
     public GameObject RoomFire;
     public GameObject SpawnedFire;
-    private double fireProb;
+    public double fireProb;
     public bool onFire;
     public bool isRisky;
     private double prob;
@@ -27,7 +27,7 @@ public class RoomDisaster : MonoBehaviour
             {
                 if (DoorsThatAreNear[i].GetComponent<DoorDisaster>().onFire)
                 {
-                    fireProb += 10e-5;
+                    fireProb += 10e-7;
                 }
             }
         }
@@ -40,17 +40,16 @@ public class RoomDisaster : MonoBehaviour
                 SpawnedFire.SetActive(true);
             }
         }
-        
     }
 
     public void Init()
     {
         SpawnedFire.SetActive(false);
         fireProb = 0;
+        isRisky = false;
         if (onFire && Area.GetComponent<ExcapeAgent>().disasterType > 0)
         {
             SpawnedFire.SetActive(true);
         }
-        isRisky = false;
     }
 }

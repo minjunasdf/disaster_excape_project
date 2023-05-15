@@ -7,66 +7,54 @@ public class DoorDisaster : MonoBehaviour
     private GameObject Area;
     public GameObject DoorFire;
     public GameObject DoorCrash;
-    private double riskRate;
-    private double fireProb;
+    public GameObject SpawnedFire;
+    public GameObject SpawnedCrash;
+    public double riskRate;
+    public double fireProb;
     public bool onFire;
     public bool isRisky;
     private double prob;
+    public GameObject[] RoomsThatAreNear = new GameObject[2];
 
     void Start()
     {
         Area = GameObject.Find("Area");
-
+        SpawnedFire = Instantiate(DoorFire, this.transform.position, Quaternion.identity);
+        SpawnedCrash = Instantiate(DoorCrash, this.transform.position, Quaternion.identity);
     }
 
     void Update()
     {
-        
-        transform.Translate(Vector3.back);
-        if (Area.GetComponent<ExcapeAgent>().disasterType % 2 == 0) // ÁöÁø
+        for(int i = 0; i < 2; i++)
         {
-            prob = Random.Range(0f, 1f);
-            if (prob < riskRate)
+            if (RoomsThatAreNear[i] != null && onFire == false)
             {
-                isRisky = true;
-                Instantiate(DoorCrash, this.transform.position, Quaternion.identity);
+                if (RoomsThatAreNear[i].GetComponent<RoomDisaster>().onFire)
+                {
+                    fireProb += 10e-7;
+                }
             }
         }
-        transform.Translate(Vector3.forward);
 
-        prob = Random.Range(0f, 1f);
-        if (prob < fireProb)
+        if(onFire == false && Area.GetComponent<ExcapeAgent>().disasterType > 0)
         {
-            onFire = true;
-            Instantiate(DoorFire, this.transform.position, Quaternion.identity);
+            prob = Random.Range(0f, 1f);
+            if(prob < fireProb)
+            {
+                onFire = true;
+                SpawnedFire.SetActive(true);
+            }
         }
+
     }
 
     public void Init()
     {
-        if (Area.GetComponent<ExcapeAgent>().disasterType % 2 == 0)
-        {
-            riskRate = 10e-6;
-        }
+        SpawnedFire.SetActive(false);
+        SpawnedCrash.SetActive(false);
         fireProb = 0;
-        onFire = false;
         riskRate = 0;
+        onFire = false;
         isRisky = false;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag.Contains("room"))
-        {
-            //Debug.Log("asdf");
-            if (other.GetComponent<RoomDisaster>().isRisky)
-            {
-                riskRate += 10e-7;
-            }
-            if (other.GetComponent<RoomDisaster>().onFire)
-            {
-                fireProb += 10e-7;
-            }
-        }
     }
 }

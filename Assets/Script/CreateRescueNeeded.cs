@@ -49,6 +49,7 @@ public class CreateRescueNeeded : MonoBehaviour
                 person[j] = Instantiate(RescueObject, SpawnPoint[random_number[j]].transform.position, Quaternion.identity);
                 person[j].transform.SetParent(GameObject.Find("Parent").transform);
                 person[j].name = "people"+j.ToString();
+                person[j].GetComponent<ChkExit>().personIndex = j;
             }
             GameObject tmp = GameObject.Find("Parent").transform.GetChild(j).gameObject;
             tmp.SetActive(false);

@@ -19,6 +19,7 @@ public class ExcapeAgent : Agent
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
+        Debug.Log("----------------------------------------");
         episodes += 1;
         for (int i = 0; i < doors.Length;i++) {
             doors[i].GetComponent<DoorDisaster>().Init();
@@ -89,7 +90,7 @@ public class ExcapeAgent : Agent
         {
             if (this.GetComponent<CreateRescueNeeded>().person[j] != null)
             {
-                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = 0;//act[j];
+                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = exit;//act[j];
             }
         }
     }
@@ -99,7 +100,7 @@ public class ExcapeAgent : Agent
     {
         if (remainPeople == 0)
         {
-            EndEpisode();
+            Invoke("EndEpisode", 0.1f);
         }
     }
 
@@ -108,7 +109,7 @@ public class ExcapeAgent : Agent
         AddReward(-1.0f);
         if (remainPeople == 0)
         {
-            EndEpisode();
+            Invoke("EndEpisode", 0.1f);
         }
     }
 
