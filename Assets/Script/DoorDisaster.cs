@@ -13,6 +13,7 @@ public class DoorDisaster : MonoBehaviour
     public double fireProb;
     public bool onFire;
     public bool isRisky;
+    private bool exitDoor;
     private double prob;
     public GameObject[] RoomsThatAreNear = new GameObject[2];
 
@@ -34,6 +35,17 @@ public class DoorDisaster : MonoBehaviour
                     fireProb += 10e-7;
                 }
             }
+            if (RoomsThatAreNear[i] != null && isRisky == false)
+            {
+                if (RoomsThatAreNear[i].GetComponent<RoomDisaster>().isRisky)
+                {
+                    riskRate += 10e-7;
+                }
+            }
+            if(RoomsThatAreNear[i].GetComponent<RoomDisaster>().isExit)
+            {
+                exitDoor = true;
+            }
         }
 
         if(onFire == false && Area.GetComponent<ExcapeAgent>().disasterType > 0)
@@ -45,6 +57,15 @@ public class DoorDisaster : MonoBehaviour
                 SpawnedFire.SetActive(true);
             }
         }
+        if(isRisky == false && Area.GetComponent<ExcapeAgent>().disasterType % 2 == 0 && exitDoor==false)
+        {
+            prob=Random.Range(0f, 1f);
+            if(prob<riskRate)
+            {
+                isRisky= true;
+                SpawnedCrash.SetActive(true);
+            }
+        }
 
     }
 
@@ -53,8 +74,16 @@ public class DoorDisaster : MonoBehaviour
         SpawnedFire.SetActive(false);
         SpawnedCrash.SetActive(false);
         fireProb = 0;
-        riskRate = 0;
+        if (Area.GetComponent<ExcapeAgent>().disasterType ==0 || Area.GetComponent<ExcapeAgent>().disasterType==2)
+        {
+            riskRate = 10e-5;
+        }
+        else
+        {
+            riskRate = 0;
+        }
         onFire = false;
         isRisky = false;
+        exitDoor= false;
     }
 }

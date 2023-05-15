@@ -25,14 +25,20 @@ public class ExcapeAgent : Agent
             doors[i].GetComponent<DoorDisaster>().Init();
         }
         disasterType = (int)Random.Range(0, 3);
+        exit = Random.Range(0, 9); // 끝 숫자 포함 안됨
         if (disasterType > 0)
         {
             fire = Random.Range(0, 9);
+            while(exit == fire)
+            {
+                fire = Random.Range(0, 9);
+            }
         }
         else
         {
             fire = -1;
         }
+
         for (int i=0;i<this.GetComponent<CreateRescueNeeded>().Rooms.Length;i++)
         {
             if (disasterType > 0)
@@ -45,10 +51,18 @@ public class ExcapeAgent : Agent
                 {
                     this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().onFire = false;
                 }
+                
+            }
+            if(exit == i)
+            {
+                this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().isExit = true;
+            }
+            else
+            {
+                this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().isExit = false;
             }
             this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().Init();
         }
-        exit = Random.Range(0, 9); // 끝 숫자 포함 안됨
         this.GetComponent<CreateRescueNeeded>().Init(episodes);
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
         SetReward(2f);
@@ -74,6 +88,7 @@ public class ExcapeAgent : Agent
         {
             sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().roomPeopleNum); 
         }
+        sensor.AddObservation(exit);
     }
 
     

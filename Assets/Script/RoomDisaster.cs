@@ -10,6 +10,7 @@ public class RoomDisaster : MonoBehaviour
     public double fireProb;
     public bool onFire;
     public bool isRisky;
+    public bool isExit;
     private double prob;
     public GameObject[] DoorsThatAreNear = new GameObject[4];
 
@@ -17,17 +18,25 @@ public class RoomDisaster : MonoBehaviour
     {
         Area = GameObject.Find("Area");
         SpawnedFire = Instantiate(RoomFire, this.transform.position, Quaternion.identity);
+        isExit = false;
     }
     
     void Update()
     {
         for(int i = 0; i < 4; i++)
         {
-            if (DoorsThatAreNear[i] != null && onFire == false)
+            if (DoorsThatAreNear[i] != null && onFire == false && isExit == false)
             {
                 if (DoorsThatAreNear[i].GetComponent<DoorDisaster>().onFire)
                 {
                     fireProb += 10e-7;
+                }
+            }
+            if (DoorsThatAreNear[i]!=null && isRisky==false&& isExit == false)
+            {
+                if (DoorsThatAreNear[i].GetComponent<DoorDisaster>().isRisky)
+                {
+                    isRisky = true;
                 }
             }
         }

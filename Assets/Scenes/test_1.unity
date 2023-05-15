@@ -1048,6 +1048,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1099748015}
   - {fileID: 631303774}
@@ -1584,6 +1585,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1084070129}
   - {fileID: 1168638947}
@@ -2027,6 +2029,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1845133439}
   - {fileID: 35543535}
@@ -2630,6 +2633,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1845133439}
   - {fileID: 1955585488}
@@ -3415,6 +3419,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1198077412}
   - {fileID: 1418462557}
@@ -4429,6 +4434,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1955585488}
   - {fileID: 1168638947}
@@ -4652,6 +4658,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1359588902}
   - {fileID: 1084070129}
@@ -4906,6 +4913,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1099748015}
   - {fileID: 1198077412}
@@ -6561,7 +6569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 19
+    VectorObservationSize: 20
     NumStackedVectorObservations: 3
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -6665,6 +6673,7 @@ MonoBehaviour:
   fireProb: 0
   onFire: 0
   isRisky: 0
+  isExit: 0
   DoorsThatAreNear:
   - {fileID: 1359588902}
   - {fileID: 35543535}
