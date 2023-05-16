@@ -64,7 +64,7 @@ public class ExcapeAgent : Agent
         }
         this.GetComponent<CreateRescueNeeded>().Init(episodes);
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
-        SetReward(2f);
+        SetReward(1f);
     }
 
     //환경 정보를 관측 및 수집해 정책 결정을 위해 브레인에 전달하는 메소드
@@ -101,7 +101,7 @@ public class ExcapeAgent : Agent
     //브레인(정책)으로 부터 전달 받은 행동을 실행하는 메소드
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
-        AddReward(-1f / MaxStep);
+        AddReward(-0.0002f); // 최대 1까지 까이게
         MoveObject(actionBuffers.DiscreteActions);
     }
     
@@ -118,6 +118,7 @@ public class ExcapeAgent : Agent
 
     public void SomeoneHasExited()
     {
+        AddReward(0.2f); 
         if (remainPeople == 0)
         {
             Invoke("EndEpisode", 0.1f);
@@ -126,7 +127,7 @@ public class ExcapeAgent : Agent
 
     public void SomeoneHasDied()
     {
-        AddReward(-1.0f);
+        AddReward(-0.2f); // 최대 2까지 까이게
         if (remainPeople == 0)
         {
             Invoke("EndEpisode", 0.1f);

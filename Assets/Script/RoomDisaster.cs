@@ -29,7 +29,7 @@ public class RoomDisaster : MonoBehaviour
             {
                 if (DoorsThatAreNear[i].GetComponent<DoorDisaster>().onFire)
                 {
-                    fireProb += 10e-7;
+                    fireProb += 5*10e-6;
                 }
             }
             if (DoorsThatAreNear[i]!=null && isRisky==false&& isExit == false)

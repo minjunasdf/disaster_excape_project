@@ -32,14 +32,14 @@ public class DoorDisaster : MonoBehaviour
             {
                 if (RoomsThatAreNear[i].GetComponent<RoomDisaster>().onFire)
                 {
-                    fireProb += 10e-7;
+                    fireProb += 5*10e-6;
                 }
             }
             if (RoomsThatAreNear[i] != null && isRisky == false)
             {
                 if (RoomsThatAreNear[i].GetComponent<RoomDisaster>().isRisky)
                 {
-                    riskRate += 10e-7;
+                    riskRate += 10e-6;
                 }
             }
             if(RoomsThatAreNear[i].GetComponent<RoomDisaster>().isExit)
@@ -76,7 +76,7 @@ public class DoorDisaster : MonoBehaviour
         fireProb = 0;
         if (Area.GetComponent<ExcapeAgent>().disasterType ==0 || Area.GetComponent<ExcapeAgent>().disasterType==2)
         {
-            riskRate = 10e-5;
+            riskRate = 10e-4;
         }
         else
         {

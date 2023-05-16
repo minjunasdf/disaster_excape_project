@@ -6523,7 +6523,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 5000
   remainPeople: 0
   exit: 0
   fire: 0
