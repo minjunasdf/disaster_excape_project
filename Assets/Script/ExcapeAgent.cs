@@ -15,7 +15,6 @@ public class ExcapeAgent : Agent
         episodes = 0;
     }
 
-
     //에피소드(학습단위)가 시작할때마다 호출
     public override void OnEpisodeBegin()
     {
@@ -67,7 +66,6 @@ public class ExcapeAgent : Agent
         remainPeople = this.GetComponent<CreateRescueNeeded>().totalPeopleNum;
         SetReward(2f);
     }
-    
 
     //환경 정보를 관측 및 수집해 정책 결정을 위해 브레인에 전달하는 메소드
     public override void CollectObservations(VectorSensor sensor)
@@ -91,7 +89,6 @@ public class ExcapeAgent : Agent
         sensor.AddObservation(exit);
     }
 
-    
     //브레인(정책)으로 부터 전달 받은 행동을 실행하는 메소드
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
@@ -105,11 +102,10 @@ public class ExcapeAgent : Agent
         {
             if (this.GetComponent<CreateRescueNeeded>().person[j] != null)
             {
-                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = exit;//act[j];
+                this.GetComponent<CreateRescueNeeded>().person[j].GetComponent<MoveToSomewhere>().Destination = act[j];
             }
         }
     }
-
 
     public void SomeoneHasExited()
     {
@@ -127,7 +123,6 @@ public class ExcapeAgent : Agent
             Invoke("EndEpisode", 0.1f);
         }
     }
-
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
