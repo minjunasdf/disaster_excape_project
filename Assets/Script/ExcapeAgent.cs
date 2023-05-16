@@ -81,12 +81,21 @@ public class ExcapeAgent : Agent
                 sensor.AddObservation(0);
             }
         }
-
-        for(int i=0;i<9;i++)
+        for (int i=0;i<9;i++)
         {
-            sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().roomPeopleNum); 
+            sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<Chkpeople>().roomPeopleNum);
         }
         sensor.AddObservation(exit);
+        sensor.AddObservation(disasterType);
+        for (int i=0;i<9;i++)
+        {
+            sensor.AddObservation(this.GetComponent<CreateRescueNeeded>().Rooms[i].GetComponent<RoomDisaster>().onFire);
+        }
+        for (int i=0;i<12;i++)
+        {
+            sensor.AddObservation(doors[i].GetComponent<DoorDisaster>().onFire);
+            sensor.AddObservation(doors[i].GetComponent<DoorDisaster>().isRisky);
+        }
     }
 
     //브레인(정책)으로 부터 전달 받은 행동을 실행하는 메소드
