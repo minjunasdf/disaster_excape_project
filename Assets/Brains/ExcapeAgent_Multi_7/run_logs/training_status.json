@@ -1,0 +1,65 @@
+{
+    "Agent": {
+        "checkpoints": [
+            {
+                "steps": 2499828,
+                "file_path": "results\\ExcapeAgent_Multi_7\\Agent\\Agent-2499828.onnx",
+                "reward": 0.783308905105446,
+                "creation_time": 1684367474.9934564,
+                "auxillary_file_paths": [
+                    "results\\ExcapeAgent_Multi_7\\Agent\\Agent-2499828.pt"
+                ]
+            },
+            {
+                "steps": 2999841,
+                "file_path": "results\\ExcapeAgent_Multi_7\\Agent\\Agent-2999841.onnx",
+                "reward": 0.5543500874669124,
+                "creation_time": 1684377566.5333197,
+                "auxillary_file_paths": [
+                    "results\\ExcapeAgent_Multi_7\\Agent\\Agent-2999841.pt"
+                ]
+            },
+            {
+                "steps": 3499909,
+                "file_path": "results\\ExcapeAgent_Multi_7\\Agent\\Agent-3499909.onnx",
+                "reward": 0.07355046272277832,
+                "creation_time": 1684387677.292826,
+                "auxillary_file_paths": [
+                    "results\\ExcapeAgent_Multi_7\\Agent\\Agent-3499909.pt"
+                ]
+            },
+            {
+                "steps": 3999824,
+                "file_path": "results\\ExcapeAgent_Multi_7\\Agent\\Agent-3999824.onnx",
+                "reward": 0.5261768523384543,
+                "creation_time": 1684397758.711113,
+                "auxillary_file_paths": [
+                    "results\\ExcapeAgent_Multi_7\\Agent\\Agent-3999824.pt"
+                ]
+            },
+            {
+                "steps": 4281474,
+                "file_path": "results\\ExcapeAgent_Multi_7\\Agent\\Agent-4281474.onnx",
+                "reward": 1.584100643793742,
+                "creation_time": 1684403455.0476787,
+                "auxillary_file_paths": [
+                    "results\\ExcapeAgent_Multi_7\\Agent\\Agent-4281474.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4281474,
+            "file_path": "results\\ExcapeAgent_Multi_7\\Agent.onnx",
+            "reward": 1.584100643793742,
+            "creation_time": 1684403455.0476787,
+            "auxillary_file_paths": [
+                "results\\ExcapeAgent_Multi_7\\Agent\\Agent-4281474.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.26.0",
+        "torch_version": "1.8.0"
+    }
+}
